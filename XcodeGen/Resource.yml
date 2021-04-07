@@ -1,0 +1,26 @@
+targets:
+  Resource:
+    templates:
+      - Project
+      - Versions
+    type: framework
+    sources: 
+      - path: ../Resource/Core
+        group: Resource
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.noppelab.vear.Resource
+    preBuildScripts:
+      - script: |
+          mint run swiftgen config run --config Resource/Core/swiftgen.yml
+  TestResource:
+    templates:
+      - Project
+      - Versions
+    type: framework
+    sources: 
+      - path: ../Resource/TestCore
+        group: Resource
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.noppelab.vear.TestResource

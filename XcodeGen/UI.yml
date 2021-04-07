@@ -1,0 +1,36 @@
+targets:
+  UI:
+    templates:
+      - Project
+      - Versions
+    type: framework
+    sources: 
+      - path: ../UI/Core
+        group: UI
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.noppelab.vear.UI
+    dependencies:
+      - target: Entity
+      - target: Resource
+      - target: VendorFramework
+      - package: FloatingPanel
+      - package: BLTNBoard
+  UIExample:
+    templates:
+      - Project
+      - Versions
+      - AppPackages
+    type: application
+    sources: 
+      - path: ../UI/Example
+        group: UI
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.noppelab.vear.UIExample
+    dependencies:
+      - target: Entity
+      - target: UI
+      - target: Resource
+      - target: TestResource
+      - target: VendorFramework

@@ -1,0 +1,18 @@
+targets:
+  VendorFramework:
+    templates:
+      - Project
+      - Versions
+    type: framework
+    sources: 
+      - path: ../VendorFramework/Core
+        group: VendorFramework
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.noppelab.vear.VendorFramework
+    dependencies:
+      - package: Kingfisher
+      - package: SFSafeSymbols
+      - package: SnapKit
+      - package: SwiftRichString
+      - package: SwiftUIFlux

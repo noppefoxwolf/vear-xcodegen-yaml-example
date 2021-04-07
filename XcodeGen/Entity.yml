@@ -1,0 +1,49 @@
+targets:
+  Entity:
+    templates:
+      - Project
+      - Versions
+    type: framework
+    sources: 
+      - path: ../Entity/Core
+        group: Entity
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.noppelab.vear.Entity
+    dependencies:
+      - target: Resource
+    scheme:
+      testTargets:
+        - EntityTests
+  EntityTests:
+    deploymentTarget: "14.0"
+    templates:
+      - Project
+    type: bundle.unit-test
+    sources: 
+      - path: ../Entity/Tests
+        group: Entity
+    dependencies:
+      - package: Quick
+      - package: Nimble
+      - target: Entity
+      - target: Resource
+  EntityExample:
+    templates:
+      - Project
+      - Versions
+      - AppPackages
+    type: application
+    sources: 
+      - path: ../Entity/Example
+        group: Entity
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.noppelab.vear.EntityExample
+    dependencies:
+      - target: UI
+      - target: Entity
+      - target: Resource
+    scheme:
+      testTargets:
+        - EntityTests

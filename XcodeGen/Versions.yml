@@ -1,0 +1,6 @@
+targetTemplates:
+  Versions:
+    settings:
+      base:
+        MARKETING_VERSION: 2.13.0
+        CURRENT_PROJECT_VERSION: 108

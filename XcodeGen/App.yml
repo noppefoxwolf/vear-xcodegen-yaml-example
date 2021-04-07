@@ -1,0 +1,99 @@
+targets:
+  App:
+    templates:
+      - Project
+      - Versions
+      - FirebaseDependencies
+      - FirebaseBuildPhaseScripts
+      - AppPackages
+    attributes:
+      SystemCapabilities:
+        com.apple.Push:
+          enabled: 1
+    scheme: {}
+    type: application
+    sources:
+      - path: ../App
+        excludes:
+          - "Resources/Firebase/"
+          - "Resources/OnDemand/*.vrm"
+          - "Resources/Lut/"
+          - "Resources/Sphere/"
+          - "Resources/Background/"
+          - "Resources/Accessory/"
+      - path: ../Shared
+      - path: ../App/Resources/OnDemand/Darkness_Shibu.vrm
+        resourceTags: [SampleAvatar1]
+      - path: ../App/Resources/OnDemand/Victoria_Rubin.vrm
+        resourceTags: [SampleAvatar2]
+      - path: ../App/Resources/OnDemand/vivi.vrm
+        resourceTags: [SampleAvatar3]
+      - path: ../App/Resources/OnDemand/three_bs_custom.vrm
+        resourceTags: [SampleAvatar4]
+      - path: ../App/Resources/Lut/
+        type: folder
+        group: Raw
+      - path: ../App/Resources/Accessory/
+        type: folder
+        group: Raw
+      - path: ../App/Resources/Sphere/
+        type: folder
+        group: Raw
+      - path: ../App/Resources/Background/
+        type: folder
+        group: Raw
+      - path: ../Resource/Core/BartyCrouch
+    settings:
+      base:
+        TARGETED_DEVICE_FAMILY: 1
+        SWIFT_VERSION: 5.0
+        CODE_SIGN_STYLE: Automatic
+        SWIFT_OBJC_BRIDGING_HEADER: App/Resources/BridgingHeader.h
+        CODE_SIGN_ENTITLEMENTS: App/App.entitlements
+      configs:
+        Debug:
+          APP_NAME: vear debug
+          ASSETCATALOG_COMPILER_APPICON_NAME: DevelopIcon
+          PRODUCT_BUNDLE_IDENTIFIER: com.noppelab.vear.debug
+        Release:
+          APP_NAME: vear
+          ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+          PRODUCT_BUNDLE_IDENTIFIER: com.noppelab.vear
+    dependencies:
+      - target: UI
+      - target: ThumbnailExtension
+      - target: Ask
+      - target: Resource
+      - target: Broadcast
+      - target: Entity
+      - target: Tutorial
+      - package: VRMSceneKit
+      - package: Zip
+      - package: APIKit
+      - package: Cache
+      - package: SwiftyStoreKit
+      - package: DebugMenu
+      - framework: ../LocalPackages/UnityFramework.framework
+        embed: true
+        weak: true
+        codeSign: true
+        link: false
+      - sdk: StoreKit.framework
+  ThumbnailExtension:
+    templates:
+      - Project
+      - Versions
+    type: app-extension
+    sources:
+      - ../ThumbnailExtension
+    settings:
+      configs:
+        Debug:
+          PRODUCT_BUNDLE_IDENTIFIER: com.noppelab.vear.debug.ThumbnailExtension
+        Release:
+          PRODUCT_BUNDLE_IDENTIFIER: com.noppelab.vear.ThumbnailExtension
+    dependencies:
+      - sdk: QuickLookThumbnailing.framework
+
+
+      

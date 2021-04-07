@@ -1,0 +1,29 @@
+targets:
+  Tracker:
+    templates:
+      - Project
+      - Versions
+    type: framework
+    sources: 
+      - path: ../Tracker/Core
+        group: Tracker
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.noppelab.vear.Tracker
+    dependencies:
+      - target: Resource
+  TrackerExample:
+    templates:
+      - Project
+      - Versions
+      - AppPackages
+    type: application
+    sources: 
+      - path: ../Tracker/Example
+        group: Tracker
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.noppelab.vear.TrackerExample
+    dependencies:
+      - target: Tracker
+      - target: Resource

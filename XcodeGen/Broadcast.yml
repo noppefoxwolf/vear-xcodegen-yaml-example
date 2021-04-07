@@ -1,0 +1,43 @@
+targets:
+  Broadcast:
+    templates:
+      - Project
+      - Versions
+    type: framework
+    sources: 
+      - path: ../Broadcast/Core
+        group: Broadcast
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.noppelab.vear.Broadcast
+    dependencies:
+      - target: UI
+      - target: Entity
+      - target: Resource
+      - target: VendorFramework
+      - package: SwiftUIExtensions-Dynamic
+      - package: Swinject-Dynamic
+      - package: HaishinKit
+  BroadcastApp:
+    deploymentTarget: "14.0"
+    templates:
+      - Project
+      - Versions
+      - AppPackages
+    type: application
+    sources:
+      - path: ../Broadcast/App
+        group: Broadcast
+      - path: ../Shared
+    settings:
+      configs:
+        Debug:
+          APP_NAME: vear Broadcast debug
+          PRODUCT_BUNDLE_IDENTIFIER: com.noppelab.vear.Broadcast.app
+    dependencies:
+      - target: Broadcast
+      - target: UI
+      - target: Entity
+      - target: Resource
+      - target: TestResource
+      - target: VendorFramework

@@ -1,0 +1,36 @@
+targets:
+  Tutorial:
+    templates:
+      - Project
+      - Versions
+    type: framework
+    sources: 
+      - path: ../Tutorial/Core
+        group: Tutorial
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.noppelab.vear.Tutorial
+    dependencies:
+      - target: UI
+      - target: Entity
+      - target: Resource
+      - target: VendorFramework
+  TutorialExample:
+    templates:
+      - Project
+      - Versions
+      - AppPackages
+    type: application
+    sources: 
+      - path: ../Tutorial/Example
+        group: Tutorial
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.noppelab.vear.TutorialExample
+    dependencies:
+      - target: Tutorial
+      - target: UI
+      - target: Entity
+      - target: Resource
+      - target: TestResource
+      - target: VendorFramework

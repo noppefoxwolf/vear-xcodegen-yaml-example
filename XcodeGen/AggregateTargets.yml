@@ -1,0 +1,7 @@
+aggregateTargets:
+  Periphery:
+    buildScripts:
+      - script: mint run periphery scan --project vear.xcodeproj --schemes App --targets App --format xcode
+  Bartycrouch:
+    buildScripts:
+      - script: mint run bartycrouch update -x && mint run bartycrouch lint -x
